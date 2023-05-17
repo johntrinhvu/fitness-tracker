@@ -14,7 +14,12 @@
     <nav>
         <img src="/images/dumbbells.svg" alt="logo">
         <a href="/"	<%- title === 'Home' ? 'class="active"' : '' %>>HOME</a>
-        <a href="/trackers" <%- title === 'Fitness Tracker' ? 'class="active"' : '' %>>FITNESS TRACKER</a>
+        <% if (user) { %>
+          <a href="/trackers" <%- title === 'Fitness Tracker' ? 'class="active"' : '' %>>FITNESS TRACKER</a>
+          <a href="/logout">LOG OUT</a>
+        <% } else { %>
+          <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+        <% } %>
     </nav>
 
     <h1><%= title %></h1>

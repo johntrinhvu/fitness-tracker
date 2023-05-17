@@ -46,3 +46,14 @@ nav > a.active {
   cursor: default;
 
 }
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 34px;
+}
+
+.login img {
+  height: 30px;
+}
