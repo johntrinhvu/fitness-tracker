@@ -7,10 +7,8 @@ module.exports = {
 };
 
 
-function index(req, res) {
-    res.render('trackers/index', {
-      trackers: Tracker.getAll(),
-      title: 'Fitness Tracker'
-
-    });
+async function index(req, res) {
+    const trackers = await Tracker.find({});
+    res.render('trackers/index', { title: 'Fitness Tracker', trackers });
+  
 }

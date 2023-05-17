@@ -1,16 +1,11 @@
-const todos = [
-    {id: 125223, todo: 'Feed Dogs', done: true},
-    {id: 127904, todo: 'Learn Express', done: false},
-    {id: 139608, todo: 'Buy Milk', done: false}
+const mongoose = require('mongoose');
+// optional shortcut to the mongoose.Schema class
+const Schema = mongoose.Schema;
 
-];
-	
-module.exports = {
-    getAll
+const trackerSchema = new Schema({
+  title: { type: String, required: true },
+  
+});
 
-};
-
-function getAll() {
-    return todos;
-
-}
+// Compile the schema into a model and export it
+module.exports = mongoose.model('Tracker', trackerSchema);
