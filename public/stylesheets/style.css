@@ -21,6 +21,12 @@ body > nav {
 
 }
 
+nav > img {
+  width: 130px;
+  object-fit: contain;
+  margin-right: auto;
+}
+
 nav > a {
   margin: 20px;
   text-decoration: none;
@@ -38,5 +44,5 @@ nav > a:hover:not(.active) {
 nav > a.active {
   color: white;
   cursor: default;
-  
+
 }
