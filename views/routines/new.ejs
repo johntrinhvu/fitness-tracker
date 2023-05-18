@@ -1,0 +1,11 @@
+<%- include('../partials/header') %>
+
+<h1>New Routines Page</h1>
+
+<form id="new-form" action="/routines" method="POST">
+  <label>Name of Routine:</label>
+  <input type="text" name="routineName">
+  <input type="submit" value="Create Routine">
+</form>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,45 @@
+<%- include('../partials/header') %>
+
+<section id="show-page">
+    <div>Routine Name: </div>
+    <div><%= routine.routineName %></div>
+
+</section>
+
+<br><br><h2>Exercises</h2>
+<form id="add-exercise-form" method="POST"
+  action="/routines/<%= routine._id %>/exercises">
+  <label>Exercise Name:</label>
+  <input type="text" name="exerciseName">
+  <label>Sets:</label>
+  <input type="number" name="sets">
+  <label>Repetitions:</label>
+  <input type="number" name="repetitions">
+  <input type="submit" value="Add Exercise">
+</form>
+
+<% if (routine.exercises.length) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Exercise</th>
+          <th>Sets</th>
+          <th>Repetitions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% routine.exercises.forEach(function(e) { %>
+            <tr>
+                <td><%= e.exerciseName %></td>
+                <td><%= e.sets %></td>
+                <td><%= e.repetitions %></td>
+            </tr>
+
+        <% }); %>
+      </tbody>
+    </table>
+<% } else { %>
+    <h5>No Exercises Added Currently</h5>
+<% } %>
+
+<%- include('../partials/footer') %>

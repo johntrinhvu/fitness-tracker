@@ -1,9 +1,19 @@
 const mongoose = require('mongoose');
+
 // optional shortcut to the mongoose.Schema class
 const Schema = mongoose.Schema;
 
 const routineSchema = new Schema({
-  title: { type: String, required: true },
+    routineName: {
+        type: String
+    },
+    uniqueId: {
+        type: Schema.Types.ObjectId
+    },
+    exercises: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Exercise'
+    }]
   
 });
 

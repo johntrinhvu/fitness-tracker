@@ -1,5 +1,6 @@
 // controllers/todos.js
-var Tracker = require('../models/tracker');
+var Routines = require('../models/routine');
+var User = require('../models/user');
 
 module.exports = {
     index
@@ -8,7 +9,8 @@ module.exports = {
 
 
 async function index(req, res) {
-    const trackers = await Tracker.find({});
-    res.render('trackers/index', { title: 'Fitness Tracker', trackers });
+    const user = await User.findById(req.user._id).populate('routines');
+    const routines = user.routines;
+    res.render('trackers/index', { title: 'Fitness Tracker', routines});
   
 }

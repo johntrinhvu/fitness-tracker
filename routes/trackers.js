@@ -6,6 +6,8 @@ var trackersCtrl = require('../controllers/trackers');
 
 
 // GET /tracker
-router.get('/', trackersCtrl.index);
+router.get('/trackers', trackersCtrl.index);
+
+// post
 
 module.exports = router;

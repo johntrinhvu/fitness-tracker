@@ -1,5 +1,24 @@
 <%- include('../partials/header') %>
 
-<h1>Hello</h1>
+<h1>This is the Tracker Page</h1>
+<table id="list">
+    <thead>
+        <tr>
+            <th>Routines</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% routines.forEach(function(r) { %>
+            <tr>
+                <td><%= r.routineName %></td>
+                <td><a href="/routines/<%= r._id %>">ROUTINE DETAILS</a></td>
+            </tr>
+
+        <% }); %>
+    </tbody>
+
+</table>
+
 
 <%- include('../partials/footer') %>
