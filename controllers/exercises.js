@@ -37,8 +37,8 @@ async function deleteExercise(req, res) {
 
 }
 
-function edit(req, res) {
-    const exercise = Exercise.getOne(req.params.id);
-    res.render('exercises/edit', { title: 'Edit Exercise', exercise });
-
-}
+async function edit(req, res) {
+    // Retrieves a specific sneaker from the database based on the provided ID
+    const exercise = await Exercise.findById(req.params.id);
+    res.render("exercises/edit", { title: "Edit exercise", exercise });
+  }
