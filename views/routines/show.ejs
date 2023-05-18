@@ -22,9 +22,11 @@
     <table>
       <thead>
         <tr>
-          <th>Exercise</th>
-          <th>Sets</th>
-          <th>Repetitions</th>
+            <th>Exercise</th>
+            <th>Sets</th>
+            <th>Repetitions</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -33,6 +35,16 @@
                 <td><%= e.exerciseName %></td>
                 <td><%= e.sets %></td>
                 <td><%= e.repetitions %></td>
+                <td>
+                    <form action="/exercises/<%= e._id %>?_method=EDIT" method="POST">
+                        <button>EDIT EXERCISE</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="/exercises/<%= e._id %>?_method=DELETE" method="POST">
+                        <button type="submit">X</button>
+                    </form>
+                </td>
             </tr>
 
         <% }); %>

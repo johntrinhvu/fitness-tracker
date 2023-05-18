@@ -3,8 +3,25 @@ const Exercise = require('../models/exercise');
 
 module.exports = {
   create,
-  delete: deleteExercise
+  delete: deleteExercise,
+  edit,
+
 };
+
+async function create(req, res) {
+    const routine = await Routine.findById(req.params.id);
+    const exercise = await Exercise.create(req.body);
+    // We can push (or unshift) subdocs into Mongoose arrays
+    routine.exercises.push(exercise);
+    try {
+        // Save any changes made to the movie doc
+        await routine.save();
+    } catch (err) {
+        console.log(err);
+    }
+    res.redirect(`/routines/${routine._id}`);
+
+}
 
 async function deleteExercise(req, res) {
   // Note the cool "dot" syntax to query on the property of a subdoc
@@ -15,20 +32,13 @@ async function deleteExercise(req, res) {
   routine.exercises.remove(req.params.id);
   // Save the updated movie doc
   await routine.save();
-  // Redirect back to the movie's show view
+  // Redirect back to the routine tracker's show view
   res.redirect(`/routines/${routine._id}`);
+
 }
 
-async function create(req, res) {
-  const routine = await Routine.findById(req.params.id);
-  const exercise = await Exercise.create(req.body);
-  // We can push (or unshift) subdocs into Mongoose arrays
-  routine.exercises.push(exercise);
-  try {
-    // Save any changes made to the movie doc
-    await routine.save();
-  } catch (err) {
-    console.log(err);
-  }
-  res.redirect(`/routines/${routine._id}`);
+function edit(req, res) {
+    const exercise = Exercise.getOne(req.params.id);
+    res.render('exercises/edit', { title: 'Edit Exercise', exercise });
+
 }
