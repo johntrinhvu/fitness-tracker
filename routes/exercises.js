@@ -11,4 +11,7 @@ router.delete('/exercises/:id', ensureLoggedIn, exercisesCtrl.delete);
 // EDIT /exercises
 router.get('/exercises/:id/edit', ensureLoggedIn, exercisesCtrl.edit);
 
+// UPDATE /exercises
+router.get('/exercises/:id', ensureLoggedIn, exercisesCtrl.update);
+
 module.exports = router;

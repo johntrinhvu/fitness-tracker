@@ -16,4 +16,6 @@ router.get('/:id', routinesCtrl.show);
 
 router.post('/', ensureLoggedIn, routinesCtrl.create);
 
+router.delete('/:id', ensureLoggedIn, routinesCtrl.delete);
+
 module.exports = router;

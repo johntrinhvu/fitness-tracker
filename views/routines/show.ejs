@@ -1,8 +1,8 @@
 <%- include('../partials/header') %>
 
 <section id="show-page">
-    <div>Routine Name: </div>
-    <div><%= routine.routineName %></div>
+    <div><h1>Routine Name: </h1></div>
+    <div><h1><%= routine.routineName %></h1></div>
 
 </section>
 
@@ -36,9 +36,9 @@
                 <td><%= e.sets %></td>
                 <td><%= e.repetitions %></td>
                 <td>
-                    <form action="/exercises/<%= e._id %>?_method=EDIT" method="POST">
+                    <a href="/exercises/<%= e._id %>/edit">
                         <button>EDIT EXERCISE</button>
-                    </form>
+                    </a>
                 </td>
                 <td>
                     <form action="/exercises/<%= e._id %>?_method=DELETE" method="POST">

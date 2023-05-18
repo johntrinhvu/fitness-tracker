@@ -5,6 +5,7 @@ module.exports = {
   create,
   delete: deleteExercise,
   edit,
+  update
 
 };
 
@@ -25,10 +26,8 @@ async function create(req, res) {
 
 async function deleteExercise(req, res) {
   // Note the cool "dot" syntax to query on the property of a subdoc
-  console.log(req.params.id, req.user._id)
   const routine = await Routine.findOne({ 'exercises': { $in: req.params.id } });
   // Rogue user!
-  console.log(routine)
   if (!routine) return res.redirect('/');
   // Remove the review using the remove method available on Mongoose arrays
   routine.exercises.remove(req.params.id);
@@ -41,7 +40,18 @@ async function deleteExercise(req, res) {
 }
 
 async function edit(req, res) {
-    // Retrieves a specific sneaker from the database based on the provided ID
     const exercise = await Exercise.findById(req.params.id);
     res.render("exercises/edit", { title: "Edit exercise", exercise });
-  }
+  
+}
+
+async function update(req, res) {
+    try {
+      await Exercise.findOneAndUpdate({_id: req.params.id}, req.body, {new: true});
+      res.redirect("/trackers");
+    } catch (err) {
+      console.log(err);
+      res.render("exercises/edit", { title: "Edit exercise" });
+    }
+  
+}
