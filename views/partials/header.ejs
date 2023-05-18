@@ -12,14 +12,24 @@
 </head>
 <body>
     <nav>
-        <img src="/images/dumbbells.svg" alt="logo">
-        <a href="/"	<%- title === 'Home' ? 'class="active"' : '' %>>HOME</a>
-        <% if (user) { %>
-          <a href="/trackers" <%- title === 'Fitness Tracker' ? 'class="active"' : '' %>>FITNESS TRACKER</a>
-          <a href="/logout">LOG OUT</a>
-        <% } else { %>
-          <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
-        <% } %>
+      <img src="/images/dumbbells.svg">
+      <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+      <a href="/"	<%- title === 'Home' ? 'class="active"' : '' %>>HOME</a>
+      <h3>|</h3>
+      <% if (user) { %>
+        <span class="icon"><ion-icon name="clipboard-outline"></ion-icon></span>
+        <a href="/trackers" <%- title === 'Fitness Tracker' ? 'class="active"' : '' %>>FITNESS TRACKER</a>
+        <h3>|</h3>
+        <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+        <a href="/logout">LOG OUT</a>
+      <% } else { %>
+        <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+        <a href="/auth/google" class="login">LOG IN</a>
+      <% } %>
     </nav>
-
-    <h1><%= title %></h1>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <main>
+      <h1><%= title %></h1>
+    
+    
