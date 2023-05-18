@@ -25,13 +25,16 @@ async function create(req, res) {
 
 async function deleteExercise(req, res) {
   // Note the cool "dot" syntax to query on the property of a subdoc
-  const routine = await Routine.findOne({ 'exercises._id': req.params.id, 'exercises.user': req.user._id });
+  console.log(req.params.id, req.user._id)
+  const routine = await Routine.findOne({ 'exercises': { $in: req.params.id } });
   // Rogue user!
+  console.log(routine)
   if (!routine) return res.redirect('/');
   // Remove the review using the remove method available on Mongoose arrays
   routine.exercises.remove(req.params.id);
   // Save the updated movie doc
   await routine.save();
+  await Exercise.findByIdAndDelete(req.params.id);
   // Redirect back to the routine tracker's show view
   res.redirect(`/routines/${routine._id}`);
 
