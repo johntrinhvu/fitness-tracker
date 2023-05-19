@@ -32,7 +32,8 @@ The application is built using the MEN stack (MongoDB, Express.js, and Node.js a
 
 ## Getting Started
 
-To get started with the Fitness Tracker, you can follow these steps:
+To get started with the Fitness Tracker, click on this link here:
+[FitnessTracker](https://fitness-tracker-410.herokuapp.com/)
 
 ## Next Steps
 
