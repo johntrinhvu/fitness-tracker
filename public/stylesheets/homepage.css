@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'PT Sans', sans-serif;
+    font-family: 'Quicksand', sans-serif;
+
+}
+
+.banner {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.83), rgba(0, 0, 0, 0.83)), url(../images/homebg.jpeg);
+    background-size: cover;
+    background-position: center;
+
+}
+
+.content {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.5s ease;
+    text-align: center;
+    color: white;
+
+}
+
+.content h1 {
+    font-size: 70px;
+    margin-top: 80px;
+
+}
+
+.content p {
+    font-size: 20px auto;
+    font-weight: 100;
+    line-height: 25px;
+    
+}
+
+button {
+    width: 250px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid rgb(107, 93, 193);
+    background: transparent;
+    cursor: pointer;
+    color: white;
+    line-height: 30px;
+}
+
+button:hover {
+    border: 2px solid rgb(107, 93, 193);
+    background-color: rgb(107, 93, 193);
+    transition: ease-in 0.3s;
+
+}
+
+.login img {
+    position: relative;
+    bottom: -5px;
+    height: 20px;
+
+}

@@ -13,8 +13,6 @@
 <body>
     <nav>
       <img src="/images/dumbbells.svg">
-      <a href="/"	<%- title === 'Home' ? 'class="active"' : '' %>>HOME</a>
-      <h3>|</h3>
       <% if (user) { %>
         <a href="/trackers" <%- title === 'Fitness Tracker' ? 'class="active"' : '' %>>FITNESS TRACKER</a>
         <h3>|</h3>
@@ -27,5 +25,23 @@
     </nav>
     <main>
       <h1><%= title %></h1>
+
+    <nav>
+        <label>Personal Fitness Tracker</label>
+        <ul>
+          <li><a href="/logout">SIGN OUT</a></li>
+        </ul>
+    </nav>
+
+    <div class="side-menu">
+      <center>
+        <img alt="avatar" src="<%= %>" referrerpolicy="no-referrer">
+        <h1><%= %></h1>
+        <br>
+        <br>
+
+        <h2></h2>
+      </center>
+    </div>
     
     
