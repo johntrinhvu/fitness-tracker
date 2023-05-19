@@ -7,11 +7,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=PT+Sans&family=Quicksand&display=swap" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel='stylesheet' href='/stylesheets/style.css' />
   <title><%= title %></title>
 </head>
 <body>
-    <nav>
+    <!-- <nav>
       <img src="/images/dumbbells.svg">
       <% if (user) { %>
         <a href="/trackers" <%- title === 'Fitness Tracker' ? 'class="active"' : '' %>>FITNESS TRACKER</a>
@@ -22,26 +23,71 @@
       <% } else { %>
         <a href="/auth/google" class="login">LOG IN</a>
       <% } %>
-    </nav>
+    </nav> -->
+    
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+      <h3 class="brand">
+        <i class='bx bx-dumbbell' id="dumbbell"></i>
+        <span class="text">Fitness Tracker</span>
+      </h3>
+      <ul class="side-menu top">
+        <li>
+          <a href="/trackers" <%- title === 'Fitness Tracker' ? 'class="active parent"' : 'class=parent' %>>
+            <i class='bx bxs-dashboard child'></i>
+            <span class="text">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="/routines/new" <%- title === 'Add a Routine' ? 'class="active parent"' : 'class=parent' %>>
+            <i class='bx bx-list-ul child'></i>
+            <span class="text">Create Routine</span>
+          </a>
+        </li>
+      
+      </ul>
+
+      <hr>
+
+      <ul class="side-menu">
+        <li>
+          <a href="#" class="settings parent">
+            <i class='bx bx-cog child'></i>
+            <span class="text">Settings</span>
+          </a>
+        </li>
+        <li>
+          <a href="/logout" class="logout">
+            <i class='bx bx-log-out-circle child'></i>
+            <span class="text">Sign Out</span>
+          </a>
+        </li>
+      </ul>
+
+    </section>
+    <!-- SIDEBAR -->
+
+    <!-- CONTENT -->
+    <section id="content">
+      <nav>
+        <form action="#">
+          <div class="form-input">
+            <input type="search" placeholder="Search" class="search-box">
+            <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
+          </div>
+        </form>
+        <a href="#" class="mail">
+          <i class='bx bx-envelope'></i>
+        </a>
+        <h4>|</h4>
+        <a href="#" class="notification">
+          <i class='bx bx-bell'></i>
+        </a>
+        <h4>|</h4>
+        <h4><%= user.name %></h4>
+        <img alt="avatar" src="<%= user.avatar %>" referrerpolicy="no-referrer" class="profile">
+      </nav>
+    </section>
     <main>
       <h1><%= title %></h1>
-
-    <nav>
-        <label>Personal Fitness Tracker</label>
-        <ul>
-          <li><a href="/logout">SIGN OUT</a></li>
-        </ul>
-    </nav>
-
-    <div class="side-menu">
-      <center>
-        <img alt="avatar" src="<%= %>" referrerpolicy="no-referrer">
-        <h1><%= %></h1>
-        <br>
-        <br>
-
-        <h2></h2>
-      </center>
-    </div>
-    
     

@@ -1,76 +1,245 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Quicksand&display=swap');
 
 * {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
   box-sizing: border-box;
-  font-family: Helvetica;
-  color: #424748;
   font-family: 'PT Sans', sans-serif;
   font-family: 'Quicksand', sans-serif;
 
 }
 
-body {
-  margin: 0;
-  height: 100vh;
-  display: grid;
-  grid-template-rows: 50px 1fr;
-  grid-template-areas: 
-    "nav"
-    "main"
+/* SIDEBAR */
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 100%;
+  background: rgb(107, 93, 193);
+  z-index: 1000;
+
 }
 
-body > nav {
-  grid-area: nav;
-  background-color: rgb(110, 92, 200);
+#sidebar .brand {
+  font-size: 24px;
+  font-weight: 700;
+  height: 56px;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  padding: 0 20px 0 30px;
+  color: white;
 }
 
-nav > img {
-  width: 60px;
-  object-fit: contain;
+#dumbbell {
+  color: rgb(207, 102, 173);
+  min-width: 60px;
+  display: flex;
+  justify-content: center;
+  
+}
+
+#sidebar .side-menu {
+  width: 100%;
+  margin-top: 48px;
+
+}
+
+#sidebar .side-menu li {
+  height: 48px;
+  background: transparent;
+
+}
+
+/* to highlight the icon when the link is active */
+.parent.active .child {
+  color: rgb(207, 102, 173);
+  cursor: default;
+
+}
+
+/* to highlight the icon when i hover over */
+.parent:hover .child {
+  color: rgb(207, 102, 173);
+
+}
+
+/* to highlight the whole bar when it is active */
+.active {
+  background: rgb(155, 143, 225);
+
+}
+
+#sidebar .side-menu li a.logout {
+  color: rgb(254, 111, 94);
+
+}
+
+/* to highlight the whole bar when i hover over */
+#sidebar .side-menu li:hover {
+  background: rgb(155, 143, 225);
+  transition: 0.3s;
+
+}
+
+#sidebar .side-menu li a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: white;
+
+}
+
+#sidebar .side-menu li a .bx {
+  min-width: calc(60px - (4px + 6px * 2));
+  display: flex;
+  justify-content: center;
+
+}
+/* SIDEBAR */
+
+
+/* CONTENT */
+#content {
+  position: relative;
+  width: calc(100% - 280px);
+  left: 280px;
+
+}
+
+
+/* NAVBAR */
+#content nav {
+  height: 56px;
+  background: rgb(107, 93, 193);
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  grid-gap: 24px;
+  position: relative;
+
+}
+
+#content nav::before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: var(--blue);
+  bottom: -40px;
+  left: 0;
+  border-radius: 50%;
+  box-shadow: -20px -20px 0 var(--light);
+
+}
+
+#content nav a {
+  color: white;
+
+}
+
+#content nav h4 {
+  color: white;
+}
+
+#content nav a:hover {
+  color: rgb(207, 102, 173);
+  transition: 0.2s;
+
+}
+
+#content nav form {
+  max-width: 400px;
+  width: 100%;
   margin-right: auto;
+
 }
 
+#content nav .form-input {
+  color: white;
+  border: 1px solid rgb(196, 188, 242);
+  background: transparent;
+  position: relative;
+  border-radius: 15px 15px 15px 15px;
+  padding: 3px 50px 3px 10px;
+
+}
+
+#content nav .form-input input {
+  background: transparent;
+  outline: none;
+  height: 35px;
+  font-size: 15px;
+  border: 0;
+  width: 100%;
+  color: white;
+
+}
+
+#content nav .form-input button {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  background: transparent;
+  border-radius: 50%;
+  border: 0;
+  color: #FFF;
+  width: 35px;
+  height: 35px;
+  outline: 0;
+  cursor: pointer;
+
+}
+
+#content nav .mail {
+  font-size: 20px;
+  position: relative;
+
+}
+
+#content nav .notification {
+  font-size: 20px;
+  position: relative;
+  
+}
+
+#content nav .profile {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 15%;
+  
+}
+
+/* CONTENT */
+
+
+/* MAIN */
+#content .main {
+  width: 100%;
+  padding: 36px 24px;
+
+}
+
+/* main {
+  background-color: rgb(39, 31, 83);
+
+} */
 body > main {
   grid-area: main;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: white;
   padding: 20px;
   overflow-y: scroll;
+
 }
 
 body > main h1:first-child {
   margin-bottom: 50px;
-}
-
-nav > a {
-  margin: 20px;
-  text-decoration: none;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-nav > h3 {
-  color: white;
-}
-
-nav > a:hover:not(.active) {
-  color: white;
-  background-color: rgb(157, 143, 231);
-}
-
-nav > a.active {
-  color: white;
-  cursor: default;
-}
-
-nav > a.icon {
-  color: rgb(223, 94, 176);
 
 }
 
@@ -81,8 +250,8 @@ nav > a.icon {
 }
 
 #new-form *,
-#add-review-form *,
-#add-exercise-form * {
+#add-exercise-form *,
+#add-routine-form * {
   font-size: 20px;
   padding: 5px;
   border-radius: 5px;
@@ -135,15 +304,15 @@ table td {
 }
 
 #add-review-form,
-#add-exercise-form {
+#add-routine-form {
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 1rem;
   margin-bottom: 2rem;
 }
 
-#add-review-form input[type="submit"],
-#add-exercise-form input[type="submit"]  {
+#add-exercise-form input[type="submit"],
+#add-routine-form input[type="submit"]  {
   width: 10rem;
   grid-column: 2 / 3;
 }
@@ -181,24 +350,4 @@ hr {
   font-weight: bold;
 }
 
-.login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 34px;
-}
-
-.login img {
-  height: 30px;
-}
-
-.review-user {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.review-user img {
-  border-radius: 50%;
-  height: 40px;
-}
+/* MAIN */
