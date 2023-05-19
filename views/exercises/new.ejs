@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+
+<br><br><h2>Exercises</h2>
+<form id="add-exercise-form" method="POST"
+  action="/routines/<%= routine._id %>/exercises">
+  <label>Exercise Name:</label>
+  <input type="text" name="exerciseName">
+  <label>Sets:</label>
+  <input type="number" name="sets">
+  <label>Repetitions:</label>
+  <input type="number" name="repetitions">
+  <input type="submit" value="Add Exercise">
+</form>
+
+<%- include('../partials/footer') %>

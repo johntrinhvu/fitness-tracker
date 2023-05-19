@@ -14,6 +14,11 @@ router.get('/new', ensureLoggedIn, routinesCtrl.new);
 // GET /routines/:id
 router.get('/:id', routinesCtrl.show);
 
+router.get('/:id/edit', ensureLoggedIn, routinesCtrl.edit);
+
+// UPDATE /routines
+router.put('/:id', ensureLoggedIn, routinesCtrl.update);
+
 router.post('/', ensureLoggedIn, routinesCtrl.create);
 
 router.delete('/:id', ensureLoggedIn, routinesCtrl.delete);

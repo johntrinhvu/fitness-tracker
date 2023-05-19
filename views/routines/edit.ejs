@@ -1,0 +1,9 @@
+<%- include('../partials/header') %>
+
+<form id="add-exercise-form" action="/routines/<%= routine.id %>?_method=PUT" method="POST" autocomplete="off">
+    <label>Update Routine Name:</label>
+    <input type="text" name="routineName">
+    <input type="submit" value="Update Routine">
+</form>
+
+<%- include('../partials/footer') %>

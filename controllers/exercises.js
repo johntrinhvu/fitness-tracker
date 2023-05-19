@@ -5,7 +5,8 @@ module.exports = {
   create,
   delete: deleteExercise,
   edit,
-  update
+  update,
+  new: newExercise,
 
 };
 
@@ -54,4 +55,10 @@ async function update(req, res) {
       res.render("exercises/edit", { title: "Edit exercise" });
     }
   
+}
+
+async function newExercise(req, res) {
+    const routine = await Routine.findById(req.params.id);
+    res.render('exercises/new', { title: 'Add an exercise', routine });
+
 }

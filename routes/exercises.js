@@ -8,10 +8,13 @@ router.post('/routines/:id/exercises', ensureLoggedIn, exercisesCtrl.create);
 // DELETE /exercises
 router.delete('/exercises/:id', ensureLoggedIn, exercisesCtrl.delete);
 
+// GET /exercises/:id/new
+router.get('/exercises/:id/new', ensureLoggedIn, exercisesCtrl.new);
+
 // EDIT /exercises
 router.get('/exercises/:id/edit', ensureLoggedIn, exercisesCtrl.edit);
 
 // UPDATE /exercises
-router.get('/exercises/:id', ensureLoggedIn, exercisesCtrl.update);
+router.put('/exercises/:id', ensureLoggedIn, exercisesCtrl.update);
 
 module.exports = router;

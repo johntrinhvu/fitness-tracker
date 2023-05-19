@@ -7,7 +7,9 @@ module.exports = {
     new: newRoutine,
     show,
     create,
-    delete: deleteRoutine
+    delete: deleteRoutine,
+    edit,
+    update
 
 }
 
@@ -47,18 +49,24 @@ async function create(req, res) {
 }
 
 async function deleteRoutine(req, res) {
-    // Note the cool "dot" syntax to query on the property of a subdoc
-    console.log(req.params.id);
-    const routine = await Routine.findOne({ 'routine._id': req.params.id });
-    console.log(routine)
-    // // Rogue user!
-    // if (!routine) return res.redirect('/');
-    // // Remove the review using the remove method available on Mongoose arrays
-    // routine.exercises.remove(req.params.id);
-    // // Save the updated movie doc
-    // await routine.save();
-    // await Exercise.findByIdAndDelete(req.params.id);
-    // // Redirect back to the routine tracker's show view
-    // res.redirect(`/routines/${routine._id}`);
+    await Routine.findByIdAndDelete(req.params.id);
+    res.redirect('/trackers');
+
+}
+
+async function edit(req, res) {
+    const routine = await Routine.findById(req.params.id);
+    res.render("routines/edit", { title: "Edit routine name", routine });
   
-  }
+}
+
+async function update(req, res) {
+    try {
+      await Routine.findOneAndUpdate({_id: req.params.id}, req.body, {new: true});
+      res.redirect("/trackers");
+    } catch (err) {
+      console.log(err);
+      res.render("routines/edit", { title: "Edit routine" });
+    }
+  
+}

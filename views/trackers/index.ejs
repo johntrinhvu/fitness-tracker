@@ -5,6 +5,7 @@
         <tr>
             <th>Routines</th>
             <th>Details</th>
+            <th>Edit</th>
             <th>Delete</th>
         </tr>
     </thead>
@@ -13,6 +14,7 @@
             <tr>
                 <td><%= r.routineName %></td>
                 <td><a href="/routines/<%= r._id %>">ROUTINE DETAILS</a></td>
+                <td><a href="/routines/<%= r._id %>/edit">EDIT ROUTINE NAME</a></td>
                 <td>
                     <form action="/routines/<%= r._id %>?_method=DELETE" method="POST">
                         <button type="submit">X</button>
