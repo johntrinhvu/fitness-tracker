@@ -1,11 +1,25 @@
 # Fitness Tracker
 
+## Description
+
 This Fitness Tracker is a web application that allows users to create and manage fitness routines. Users can add exercises to their routines, specifying the exercise name, number of sets, and number of repetitions. 
 The application is built using the MEN stack (MongoDB, Express.js, and Node.js and supports RESTful CRUD operations.
 
 ## Screenshots
 
-Include relevant screenshots or images of your Fitness Tracker in action here.
+### Home Page
+![HomePage](https://github.com/johntrinhvu/fitness-tracker/blob/main/screenshots/HomePage.png)
+
+### Dashboard
+![Dashboard](https://github.com/johntrinhvu/fitness-tracker/blob/main/screenshots/Dashboard.png)
+
+### Dashboard with Routine
+![ExampleDashboard](https://github.com/johntrinhvu/fitness-tracker/blob/main/screenshots/ExampleDashboard.png)
+
+
+### Routine
+![ExampleRoutine](https://github.com/johntrinhvu/fitness-tracker/blob/main/screenshots/ExampleRoutine.png)
+
 
 ## Technologies Used
 
